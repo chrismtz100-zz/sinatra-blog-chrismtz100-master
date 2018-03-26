@@ -32,12 +32,12 @@ end
 
 post '/new' do
 	t = params["title"]
-	c = params["body"]
+	b = params["body"]
 	p = Post.new
 	p.title = t
 	p.body = c
 	p.save
-	erb :index
+	erb :index, :locals => {'title' => t, 'body' => b}
 end
 
 get '/' do
